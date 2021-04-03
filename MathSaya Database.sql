@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.3.2 on Thu Mar 25 13:36:51 2021
+-- File generated with SQLiteStudio v3.3.2 on Sat Apr 3 18:42:19 2021
 --
 -- Text encoding used: System
 --
@@ -22,7 +22,16 @@ CREATE TABLE Account (
         Username,
         Password
     )
-    ON CONFLICT IGNORE
+    ON CONFLICT IGNORE,
+    FOREIGN KEY (
+        [Username ID],
+        Username,
+        Password
+    )
+    REFERENCES Account ([Username ID],
+    Username,
+    Password) ON DELETE NO ACTION
+              ON UPDATE NO ACTION
 );
 
 
@@ -117,7 +126,7 @@ CREATE TABLE Progress (
 
 -- Table: Reward Points
 CREATE TABLE [Reward Points] (
-    [Reward Points] NUMERIC
+    [Reward Points] NUMERIC DEFAULT (0) 
 );
 
 
@@ -134,7 +143,10 @@ CREATE TABLE [Student Profile] (
                                 UNIQUE ON CONFLICT REPLACE
                                 NOT NULL,
     Username      NVARCHAR (30) NOT NULL
-                                UNIQUE ON CONFLICT ROLLBACK,
+                                UNIQUE ON CONFLICT ROLLBACK
+                                REFERENCES [Student Profile] (Username) ON DELETE SET NULL
+                                                                        ON UPDATE NO ACTION
+                                                                        MATCH SIMPLE,
     Password      NVARCHAR (8)  NOT NULL
                                 CHECK (length(password) <= 8) 
                                 UNIQUE ON CONFLICT ROLLBACK,
@@ -143,7 +155,12 @@ CREATE TABLE [Student Profile] (
         Username,
         Password
     )
-    ON CONFLICT IGNORE
+    ON CONFLICT IGNORE,
+    FOREIGN KEY (
+        Username
+    )
+    REFERENCES [Student Profile] (Username) ON DELETE NO ACTION
+                                            ON UPDATE NO ACTION
 );
 
 
