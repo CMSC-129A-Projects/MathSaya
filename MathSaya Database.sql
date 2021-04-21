@@ -55,8 +55,6 @@ CREATE TABLE Assessment (
     HealthStatus       INTEGER,
     [Reward Points]    INTEGER
 );
-
-
 -- Table: Avatar
 CREATE TABLE Avatar (
     Outfit       BLOB,
@@ -73,35 +71,25 @@ CREATE TABLE Avatar (
     [Avatar ID]  NUMERIC PRIMARY KEY
                          UNIQUE
 );
-
-
 -- Table: Avatar Outfit
 CREATE TABLE [Avatar Outfit] (
     [Girl Outfit] BLOB REFERENCES Avatar (Outfit),
     [Boy Outfit]  BLOB REFERENCES Avatar (Outfit),
     Accessories   BLOB REFERENCES Avatar (Accessories) 
 );
-
-
 -- Table: Bisaya Terms
 CREATE TABLE [Bisaya Terms] (
     Terms      STRING,
     Definition TEXT
 );
-
-
 -- Table: Health Potions
 CREATE TABLE [Health Potions] (
     [Health Level] NUMERIC REFERENCES [Health Status] ([Health Level]) ON UPDATE CASCADE
 );
-
-
 -- Table: Health Status
 CREATE TABLE [Health Status] (
     [Health Level] NUMERIC DEFAULT (100) 
 );
-
-
 -- Table: Lesson
 CREATE TABLE Lesson (
     [Lesson ID]      STRING  PRIMARY KEY
@@ -111,8 +99,6 @@ CREATE TABLE Lesson (
     [Lesson Number]  NUMERIC,
     [Lesson Content] TEXT
 );
-
-
 -- Table: Progress
 CREATE TABLE Progress (
     Username        STRING  REFERENCES [Student Profile] (Username),
