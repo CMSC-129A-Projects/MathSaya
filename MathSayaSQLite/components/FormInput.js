@@ -28,7 +28,7 @@ export default FormInput;
 const styles = StyleSheet.create({
   inputContainer: {
     marginTop: 15,
-    marginBottom: 5,
+    marginBottom: 8,
     width: '100%',
     height: windowHeight / 15,
     borderRadius: 20,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   input: {
     padding: 10,
     flex: 1,
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Quicksand-Medium',
     color: '#333',
     justifyContent: 'center',

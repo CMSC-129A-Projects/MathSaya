@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SQLite from 'react-native-sqlite-storage';
 import {
     Alert,
@@ -30,7 +30,7 @@ const SignUpScreen = ({ navigation }) => {
     let [confirmPassword, setConfirmPassword] = useState('');
 
     let register_user = () => {
-        //console.log(username, userpassword, confirmPassword);
+        console.log(username, password, confirmPassword);
     
         if (!username) {
           alert('butngi username');
@@ -45,7 +45,7 @@ const SignUpScreen = ({ navigation }) => {
           return;
         }
 
-        db.transaction(function (tx) {
+        db.transaction(tx => {
             tx.executeSql(
               'INSERT INTO table_users (user_name, user_password, user_confirmpassword) VALUES (?,?,?)',
               [username, password, confirmPassword],
@@ -59,6 +59,7 @@ const SignUpScreen = ({ navigation }) => {
                       {
                         text: 'Ok',
                         onPress: () => navigation.navigate('TestView'),
+                        //onPress: () => alert('Sign Up Clicked!')
                       },
                     ],
                     { cancelable: false }
@@ -70,19 +71,23 @@ const SignUpScreen = ({ navigation }) => {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <View style={styles.container}>
-                    <ScrollView keyboardShouldPersistTaps="handled">
-                        <KeyboardAvoidingView
-                            behavior="padding"
-                            style={{ flex: 1, justifyContent: 'space-between' }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fefac0' }}>
+            <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'space-between' }}>
+                
+                <View style={{ flex: 1, justifyContent: 'center' }} >
+                   
+                    <View style={{ alignItems: 'center' }}>
+                        <Image
+                            source={require('../assets/logo.png')}
+                            style={styles.logo}
+                        />
+                    </View>
 
-                            <View style={{ alignItems: 'center' }}>
-                                <Image
-                                    source={require('../assets/logo.png')}
-                                    style={styles.logo}
-                                />
-                            </View>
+                    <ScrollView 
+                        style={{ marginHorizontal: 40 }}
+                        showsVerticalScrollIndicator={false}
+                        keyboardShouldPersistTaps="handled">
+                        
 
                             <Text style={styles.text}>Buhat ug Account</Text>
 
@@ -122,30 +127,39 @@ const SignUpScreen = ({ navigation }) => {
                                 <Text style={styles.color_textPrivate}>
                                     By registering, you confirm that you accept our{' '}
                                 </Text>
+
                                 <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
                                     <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
                                         Terms of service
-                                </Text>
+                                    </Text>
                                 </TouchableOpacity>
+
                                 <Text style={styles.color_textPrivate}> and </Text>
-                                <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
-                                    Privacy Policy
+
+                                <TouchableOpacity onPress={() => alert('Privacy Policy Clicked!')}>
+                                    <Text style={[styles.color_textPrivate, { color: '#e88832' }]}> 
+                                        Privacy Policy
                                 </Text>
-                            </View>
 
-                            <View style={{alignItems: 'center'}}>
-                            <TouchableOpacity
-                                style={styles.navButton}
-                                onPress={() => navigation.navigate('Login')}>
-                                <Text style={styles.navButtonText}>
-                                    Have an Account? Sign In
-                            </Text>
-                            </TouchableOpacity>
-                        </View>
-                        </KeyboardAvoidingView>
+                        </TouchableOpacity>
+                        
+                    </View>
                     </ScrollView>
-            </View>
 
+                    
+
+                    <View style={{alignItems: 'center'}}>
+                        <TouchableOpacity
+                            style={styles.navButton}
+                            onPress={() => navigation.navigate('Login')}>
+                            <Text style={styles.navButtonText}>
+                                Have an Account? Sign In
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
         
     );
@@ -160,36 +174,38 @@ const styles = StyleSheet.create({
         backgroundColor: '#fefac0',
     },
     logo: {
-        height: 80,
-        width: 80,
+        height: 100,
+        width: 100,
         resizeMode: 'cover',
-        marginBottom: 30
+        marginTop: 15,
+        marginBottom: 15
     },
     text: {
         justifyContent: 'center',
         alignItems: 'center',
         fontFamily: 'Quicksand-Bold',
-        fontSize: 30,
-        marginBottom: 10,
+        fontSize: 40,
+        marginBottom: 5,
         color: '#402A03',
     },
     navButton: {
-        marginTop: 15,
+        marginTop: 8,
     },
     navButtonText: {
-        fontSize: 15,
+        fontSize: 18,
         fontWeight: '500',
         color: '#2e64e5',
         fontFamily: 'Roboto-Medium',
+        marginBottom: 8
     },
     textPrivate: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginVertical: 18,
+        marginVertical: 20,
         justifyContent: 'center',
     },
     color_textPrivate: {
-        fontSize: 13,
+        fontSize: 15,
         fontWeight: '400',
         fontFamily: 'Roboto-Medium',
         color: 'grey',
