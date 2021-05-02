@@ -1,18 +1,26 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     View,
     Text,
     TouchableOpacity,
     StyleSheet,
-    Image
+    Image,
 } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
+import { AuthContext } from '../components/context';
+
 const LoginScreen = ({ navigation }) => {
-    const [email, setEmail] = useState();
+    const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+
+    const {signIn} = React.useContext(AuthContext);
+
+    const loginHandle = (username, password) => {
+        signIn(username, password);
+    }
 
     return (
         <View style={styles.container}>
@@ -27,11 +35,10 @@ const LoginScreen = ({ navigation }) => {
             <Text style={styles.text}>Sign In</Text>
 
             <FormInput
-                labelValue={email}
-                onChangeText={(userEmail) => setEmail(userEmail)}
-                placeholderText="Email"
+                labelValue={username}
+                onChangeText={(userUsername) => setUsername(userUsername)}
+                placeholderText="Username"
                 iconType="user"
-                keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
             />
@@ -41,12 +48,14 @@ const LoginScreen = ({ navigation }) => {
                 onChangeText={(userPassword) => setPassword(userPassword)}
                 placeholderText="Password"
                 iconType="lock"
+                autoCapitalize="none"
+                autoCorrect={false}
                 secureTextEntry={true}
             />
 
             <FormButton
                 buttonTitle="Sign In"
-                onPress={() => alert('Sign In Clicked!')}
+                onPress={() =>{loginHandle(username, password)}}
             />
             <View style={{alignItems: 'center'}}>
                 <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
@@ -55,7 +64,7 @@ const LoginScreen = ({ navigation }) => {
 
                 <TouchableOpacity
                     style={styles.forgotButton}
-                    onPress={() => navigation.navigate('SignUp')}>
+                    onPress={() => navigation.navigate('SignUpScreen')}>
                     <Text style={styles.navButtonText}>
                         Don't have an account? Create here
                     </Text>

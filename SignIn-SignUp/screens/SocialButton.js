@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-
 import React from 'react';
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { windowHeight, windowWidth } from '../utils/Dimensions';
@@ -33,11 +32,11 @@ export default SocialButton;
 const styles = StyleSheet.create({
     buttonContainer: {
         marginTop: 10,
-        width: '70%',
+        width: '100%',
         height: windowHeight / 15,
         padding: 10,
         flexDirection: 'row',
-        borderRadius: 15,
+        borderRadius: 3,
     },
     iconWrapper: {
         width: 30,
@@ -53,8 +52,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonText: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold',
-        fontFamily: 'Roboto-Medium',
+        fontFamily: 'Lato-Regular',
     },
 });

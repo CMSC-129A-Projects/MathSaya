@@ -11,7 +11,7 @@ import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
 const SignUpScreen = ({ navigation }) => {
-    const [email, setEmail] = useState();
+    const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
 
@@ -28,11 +28,10 @@ const SignUpScreen = ({ navigation }) => {
             <Text style={styles.text}>Create an Account</Text>
 
             <FormInput
-                labelValue={email}
-                onChangeText={(userEmail) => setEmail(userEmail)}
-                placeholderText="Email"
+                labelValue={username}
+                onChangeText={(userUsername) => setUsername(userUsername)}
+                placeholderText="Username"
                 iconType="user"
-                keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
             />
@@ -76,7 +75,7 @@ const SignUpScreen = ({ navigation }) => {
             <View style={{alignItems: 'center'}}>
                 <TouchableOpacity
                     style={styles.navButton}
-                    onPress={() => navigation.navigate('Login')}>
+                    onPress={() => navigation.navigate('LoginScreen')}>
                     <Text style={styles.navButtonText}>
                         Have an Account? Sign In
                 </Text>
