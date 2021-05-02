@@ -1,8 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable quotes */
-/* eslint-disable no-unused-vars */
-/* eslint-disable comma-dangle */
 import React from 'react';
 import { View, Text, Button, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
@@ -59,8 +54,8 @@ const OnboardingScreen = ({navigation}) => {
             NextButtonComponent={Next}
             DoneButtonComponent={Done}
             DotComponent={Dots}
-            onSkip={() => navigation.replace("Login")}
-            onDone={() => navigation.navigate("Login")}
+            onSkip={() => navigation.replace("LoginScreen")}
+            onDone={() => navigation.navigate("LoginScreen")}
             pages={[
             {
                 backgroundColor: '#fefac0',
