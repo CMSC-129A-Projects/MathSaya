@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import {windowHeight, windowWidth} from '../utils/Dimensions';
