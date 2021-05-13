@@ -3,15 +3,14 @@ import React from 'react';
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, ImageBackground, Dimensions, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import lessons from './lessons';
-// import Dimensions from './utils/Dimensions';
+import {windowHeight, windowWidth} from '../utils/Dimensions';
 
-const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
-
-const ViewLessonHomeScreen = ({navigation}) => {
+const MyLesson = ({route, navigation}) => {
+    const {data} = route.params;
+    
     const LessonCard = ({lesson}) => {
         return (
-        <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate("LessonsScreen", {data:lesson})}>
+        <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate("Leksiyon", {data:lesson})}>
             <ImageBackground source={lesson.image} style={{
                 marginVertical: 10,
                 marginHorizontal: 5,
@@ -42,13 +41,15 @@ const ViewLessonHomeScreen = ({navigation}) => {
                 paddingHorizontal: 20,
             }}>
             <View style={{marginTop: 20}}>
-                <Text style={{fontSize:28, fontWeight: 'bold'}}>Kumusta,</Text>
-                <Text style={{fontSize:22, color: '#616888', marginTop:15}}>
-                    Tara ug magkat - on kita!
+                <Text style={{fontSize:28, fontWeight: 'bold'}}>
+                    Malipayong pagbalik,
+                </Text>
+                <Text style={{fontSize:16, color: '#616888', marginTop:5}}>
+                    Magkat - on kita ug bag - o ug lain - laing termino karong adlawa!
                 </Text>
                 <View style={{
                     height: 60,
-                    marginTop: 35,
+                    marginTop: 15,
                     paddingTop: 5,
                     paddingBottom: 5,
                     paddingLeft: 15,
@@ -69,9 +70,8 @@ const ViewLessonHomeScreen = ({navigation}) => {
                     flexDirection: "row", 
                     justifyContent: "space-between",
                     }}>
-                        <Text style={{fontSize:20, fontWeight:'bold'}}>Mga Kategorya</Text>
-                        <Text style={{fontSize:18, color:'#708090'}}>
-                            See All
+                        <Text style={{fontSize:30, fontWeight:'bold'}}>
+                            Mga Leksiyon sa {data.name}
                         </Text>
                     </View>
             </View>
@@ -88,4 +88,4 @@ const ViewLessonHomeScreen = ({navigation}) => {
     );
 };
 
-export default ViewLessonHomeScreen;
+export default MyLesson;
