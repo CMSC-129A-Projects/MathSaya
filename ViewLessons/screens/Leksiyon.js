@@ -1,11 +1,13 @@
 import React from 'react';
-import { FlatList, ImageBackground, ImageBackgroundComponent, SafeAreaView, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { FlatList, ImageBackground, TouchableOpacity, ImageBackgroundComponent, SafeAreaView, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const LessonsScreen = ({route}) => {
+const Leksiyon = ({route}) => {
     const {data} = route.params;
 
-    const LessonContentList = ({content, index}) => {
+    const LessonContentList = ({ content, index }) => {
+        const navigation = useNavigation();
         return (
             <View 
             style={{
@@ -30,16 +32,21 @@ const LessonsScreen = ({route}) => {
                         {content.title}
                     </Text>
                 </View>
-                <View 
-                    style={{
-                        width:40, 
-                        height:40, 
-                        backgroundColor: '#20B2AA',
-                        borderRadius: 20,
-                        justifyContent: "center",
-                        alignItems: 'center',
+                <View style={{
+                    width:40, 
+                    height:40, 
+                    backgroundColor: '#20B2AA',
+                    borderRadius: 20,
+                    justifyContent: "center",
+                    alignItems: 'center',
                 }}>
-                    <Icon name="play" style={{fontSize: 25, color: '#fff'}}/>
+                    <TouchableOpacity activeOpacity={0.8} onPress = {() => navigation.navigate("Learning")}>
+                        <Icon 
+                            name="play" 
+                            size={25}
+                            style={{color: '#fff'}} 
+                        />
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -54,8 +61,8 @@ const LessonsScreen = ({route}) => {
                     paddingRight: 20,
                     paddingLeft: 20
                 }}>
-                <Text style={{fontSize:45, fontStyle: 'italic',marginTop: 5, color: '#000000'}}>
-                    Operations
+                <Text style={{fontSize:45, fontWeight: 'bold',marginTop: -40, color: '#000000'}}>
+                    {data.name}
                 </Text>
             </ImageBackground>
             <View 
@@ -87,4 +94,4 @@ const LessonsScreen = ({route}) => {
     );
 };
 
-export default LessonsScreen;
+export default Leksiyon;

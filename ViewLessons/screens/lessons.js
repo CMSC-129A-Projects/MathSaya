@@ -8,14 +8,22 @@ const lessonContent = [
     {time: '2:00 mins', title: 'Multiplication'},
     {time: '2:30 mins', title: 'Division'},
     {time: '3:00 mins', title: 'Division'},
-    ];
+
+];
     
-    const lessons = [
+const lessons = [
     {
         name: 'Operations',
         totalLesson: '4',
         image: require('../assets/math4.jpg'),
         lessonContent,
-    },];
+    },
+    {
+        name: 'Shapes',
+        totalLesson: '4',
+        image: require('../assets/math4.jpg'),
+        lessonContent,
+    },
+];
     
-    export default lessons;
+export default lessons;
