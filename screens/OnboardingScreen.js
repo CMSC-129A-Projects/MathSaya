@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable quotes */
 /* eslint-disable no-unused-vars */
@@ -59,8 +58,8 @@ const OnboardingScreen = ({navigation}) => {
             NextButtonComponent={Next}
             DoneButtonComponent={Done}
             DotComponent={Dots}
-            onSkip={() => navigation.replace("Login")}
-            onDone={() => navigation.navigate("Login")}
+            onSkip={() => navigation.replace("LoginScreen")}
+            onDone={() => navigation.navigate("LoginScreen")}
             pages={[
             {
                 backgroundColor: '#fefac0',
