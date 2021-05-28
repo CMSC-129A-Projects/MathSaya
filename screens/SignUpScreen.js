@@ -58,7 +58,7 @@ const SignUpScreen = ({ navigation }) => {
                     [
                       {
                         text: 'Ok',
-                        onPress: () => navigation.navigate('TestView'),
+                        onPress: () => navigation.navigate('ViewUsers'),
                         //onPress: () => alert('Sign Up Clicked!')
                       },
                     ],
@@ -84,7 +84,7 @@ const SignUpScreen = ({ navigation }) => {
                     </View>
 
                     <ScrollView 
-                        style={{ marginHorizontal: 40 }}
+                        style={{ marginHorizontal: 35 }}
                         showsVerticalScrollIndicator={false}
                         keyboardShouldPersistTaps="handled">
                         
@@ -125,12 +125,12 @@ const SignUpScreen = ({ navigation }) => {
 
                             <View style={styles.textPrivate}>
                                 <Text style={styles.color_textPrivate}>
-                                    By registering, you confirm that you accept our{' '}
+                                    By registering, you confirm that you accept our 
                                 </Text>
 
                                 <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
-                                    <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
-                                        Terms of service
+                                    <Text style={[styles.color_textPrivate, { color: '#e88832' }]}> 
+                                      Terms of service
                                     </Text>
                                 </TouchableOpacity>
 
@@ -138,7 +138,7 @@ const SignUpScreen = ({ navigation }) => {
 
                                 <TouchableOpacity onPress={() => alert('Privacy Policy Clicked!')}>
                                     <Text style={[styles.color_textPrivate, { color: '#e88832' }]}> 
-                                        Privacy Policy
+                                      Privacy Policy
                                 </Text>
 
                         </TouchableOpacity>
@@ -151,7 +151,7 @@ const SignUpScreen = ({ navigation }) => {
                     <View style={{alignItems: 'center'}}>
                         <TouchableOpacity
                             style={styles.navButton}
-                            onPress={() => navigation.navigate('Login')}>
+                            onPress={() => navigation.navigate('LoginScreen')}>
                             <Text style={styles.navButtonText}>
                                 Have an Account? Sign In
                             </Text>
@@ -168,47 +168,47 @@ const SignUpScreen = ({ navigation }) => {
 export default SignUpScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        padding: 40,
-        paddingTop: 40,
-        backgroundColor: '#fefac0',
-    },
-    logo: {
-        height: 100,
-        width: 100,
-        resizeMode: 'cover',
-        marginTop: 15,
-        marginBottom: 15
-    },
-    text: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontFamily: 'Quicksand-Bold',
-        fontSize: 40,
-        marginBottom: 5,
-        color: '#402A03',
-    },
-    navButton: {
-        marginTop: 8,
-    },
-    navButtonText: {
-        fontSize: 18,
-        fontWeight: '500',
-        color: '#2e64e5',
-        fontFamily: 'Roboto-Medium',
-        marginBottom: 8
-    },
-    textPrivate: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginVertical: 20,
-        justifyContent: 'center',
-    },
-    color_textPrivate: {
-        fontSize: 15,
-        fontWeight: '400',
-        fontFamily: 'Roboto-Medium',
-        color: 'grey',
-    },
+  container: {
+      padding: 40,
+      paddingTop: 40,
+      backgroundColor: '#fefac0',
+  },
+  logo: {
+      
+      height: 100,
+      width: 100,
+      resizeMode: 'cover',
+      marginTop: 15,
+      marginBottom: 15
+  },
+  text: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontFamily: 'Quicksand-Bold',
+      fontSize: 34,
+      marginBottom: 10,
+      color: '#402A03',
+  },
+  navButton: {
+      marginTop: 15,
+  },
+  navButtonText: {
+      fontSize: 18,
+      fontWeight: '500',
+      color: '#2e64e5',
+      fontFamily: 'Roboto-Medium',
+      marginBottom: 5
+  },
+  textPrivate: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginVertical: 12,
+      justifyContent: 'center',
+  },
+  color_textPrivate: {
+      fontSize: 13,
+      fontWeight: '400',
+      fontFamily: 'Roboto-Medium',
+      color: 'grey',
+  },
 });
-

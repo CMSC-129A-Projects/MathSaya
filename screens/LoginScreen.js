@@ -59,7 +59,7 @@ const LoginScreen = ({ navigation }) => {
                             [
                                 {
                                 text: 'Ok',
-                                onPress: () => navigation.navigate('TestView'),
+                                onPress: () => navigation.navigate('ViewUsers'),
                                 },
                             ],
                             { cancelable: false }
@@ -136,7 +136,7 @@ const LoginScreen = ({ navigation }) => {
 
                         <TouchableOpacity
                             style={styles.forgotButton}
-                            onPress={() => navigation.navigate('SignUp')}>
+                            onPress={() => navigation.navigate('SignUpScreen')}>
                             <Text style={styles.navButtonText}>
                                 Don't have an account? Create here
                             </Text>
