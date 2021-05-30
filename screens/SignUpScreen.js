@@ -58,7 +58,7 @@ const SignUpScreen = ({ navigation }) => {
                     [
                       {
                         text: 'Ok',
-                        onPress: () => navigation.navigate('ViewUsers'),
+                        onPress: () => navigation.navigate('LoginScreen'),
                         //onPress: () => alert('Sign Up Clicked!')
                       },
                     ],

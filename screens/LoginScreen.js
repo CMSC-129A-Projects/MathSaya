@@ -59,7 +59,7 @@ const LoginScreen = ({ navigation }) => {
                             [
                                 {
                                 text: 'Ok',
-                                onPress: () => navigation.navigate('ViewUsers'),
+                                onPress: () => navigation.navigate('testViewUsers'),
                                 },
                             ],
                             { cancelable: false }
