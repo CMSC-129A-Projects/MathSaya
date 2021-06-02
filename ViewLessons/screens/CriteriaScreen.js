@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, ImageBackground, Dimensions, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import grades from './grades';
 import {windowHeight, windowWidth} from '../utils/Dimensions';
 
