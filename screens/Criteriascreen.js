@@ -45,7 +45,7 @@ const Criteriascreen = ({ navigation }) => {
                     alignItems: 'center',
                     alignContent: 'center',
                 }}>
-                <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate( "MyLessons", {data:grade})}>
+                <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate( "Lessons", {data:grade})}>
                     <View style ={{
                             backgroundColor: '#dfbf9f',
                             borderTopRightRadius: 10,

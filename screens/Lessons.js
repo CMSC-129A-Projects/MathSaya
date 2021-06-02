@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import lesson from './lesson';
 import {windowHeight, windowWidth} from '../utils/Dimensions';
 
-const MyLessons = ({route, navigation}) => {
+const Lessons = ({route, navigation}) => {
     const {data} = route.params;
     
     const LessonCard = ({lesson}) => {
@@ -87,4 +87,4 @@ const MyLessons = ({route, navigation}) => {
     );
 };
 
-export default MyLessons;
+export default Lessons;

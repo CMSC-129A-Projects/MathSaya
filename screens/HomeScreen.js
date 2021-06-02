@@ -3,9 +3,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 
-import MyLessons from './MyLessons';
+import Lessons from './Lessons';
 import Leksiyon from './Leksiyon';
-// import Learning from './Learning';
+import Learning from './Learning';
 import Criteriascreen from './Criteriascreen';
 
 const LessonsStack = createStackNavigator();
@@ -33,8 +33,8 @@ const HomeScreen = ({navigation}) => {
             }}></LessonsStack.Screen>
 
             <LessonsStack.Screen 
-                name = "MyLessons" 
-                component={MyLessons} 
+                name = "Lessons" 
+                component={Lessons} 
                 options={{
                 headerLeft: () => (
                     <Icon.Button name="ios-arrow-back" size={25}
@@ -62,7 +62,7 @@ const HomeScreen = ({navigation}) => {
                     )
             })}></LessonsStack.Screen>
 
-            {/* <LessonsStack.Screen 
+            <LessonsStack.Screen 
                 name = "Learning" 
                 component = {Learning} 
                 options={({navigation}) => ({
@@ -79,7 +79,7 @@ const HomeScreen = ({navigation}) => {
                     />
                     </TouchableOpacity>
                     )
-            })}></LessonsStack.Screen> */}
+            })}></LessonsStack.Screen>
         </LessonsStack.Navigator>
     );
 };
