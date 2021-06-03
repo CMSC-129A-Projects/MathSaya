@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import org.pgsqlite.SQLitePluginPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -31,7 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
           //Packages that cannot be autolinked yet can be added manually here, for example:
           //packages.add(new MyReactNativePackage());
           //packages.add(new SQLitePluginPackage());
-          //packages.add(new MainReactPackage());
+          //packages.add(new MainReactPackage(),
+            new RNGestureHandlerPackage());
           new SQLitePluginPackage();
           return packages;
         }
