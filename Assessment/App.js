@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {View, StatusBar} from 'react-native';
-import {Button} from 'react-native-elements';
 import Quiz from './screens/Quiz';
 import Home from './screens/Home';
 
