@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, Text, View, SafeAreaView } from 'react-native';
 import SQLite from 'react-native-sqlite-storage';
+SQLite.enablePromise(true);
 
 let db;
 db = SQLite.openDatabase(

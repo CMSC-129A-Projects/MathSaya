@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import SQLite from 'react-native-sqlite-storage';
 import {
     Alert,
     Image,
@@ -16,6 +15,10 @@ import { TextInput } from 'react-native-paper';
 
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import SQLite from 'react-native-sqlite-storage';
+SQLite.DEBUG(true);
+SQLite.enablePromise(false);
 
 let db;
 
@@ -32,53 +35,56 @@ const LoginScreen = ({ navigation }) => {
     let [userData, setUserData] = useState('');
 
     let login_user = () => {
-        console.log(username, password);
-    
-        if (!username) {
-          alert('butngi username');
-          return;
-        }
-        if (!password) {
-          alert('butangi password');
-          return;
-        }
+      console.log(username, password);
+  
+      if (!username) {
+        alert('butngi username');
+        return;
+      }
+      if (!password) {
+        alert('butangi password');
+        return;
+      }
 
-        db.transaction(tx => {
-            tx.executeSql(`SELECT * FROM table_users WHERE user_name=?`, 
+      return new Promise((resolve) => {
+        db.transaction(function (tx) {
+          tx.executeSql(
+            `SELECT * FROM table_users WHERE user_name=?`, 
             [username],
             (tx, results) => {
-                var len = results.rows.length;
-                console.log('length:', len);
-                if (len > 0) { 
-                    setUserData(results.rows.item(0));
-
-                    if (password === userData.user_password){
-                        Alert.alert(
-                            'Success',
-                            'You Login Successfully',
-                            [
-                                {
-                                text: 'Ok',
-                                onPress: () => navigation.navigate('testViewUsers'),
-                                },
-                            ],
-                            { cancelable: false }
-                        );
-                    }
-                    else{
-                        alert('wala nag tugma ang imo username ug password');
-                    }
-
+              var len = results.rows.length;
+              console.log('length:', len);
+              if (len > 0) { 
+                setUserData(results.rows.item(0));
+                if (password === userData.user_password){
+                  // Alert.alert(
+                  //   'Success',
+                  //   'You Login Successfully',
+                  //   [
+                  //     {
+                  //     text: 'Ok',
+                  //     onPress: () => navigation.navigate('testViewUsers'),
+                  //     },
+                  //   ],
+                  //   { cancelable: false }
+                  // );
+                  AsyncStorage.setItem('isAuth', 'true');
+                  alert('Konekted na ka sa imong account.');
+                  navigation.navigate('MaterialBottomNavigation');
+                  //navigation.navigate('HomeScreen');
                 }
-                else {
-                    alert('This account does not exist!');
+                else{
+                  alert('wala nag tugma ang imo username ug password');
                 }
-                }
-            );
+              }
+              else {
+                alert('This account does not exist!');
+              }
+            }
+          );
         });
+      });
     };
-
-
 
     return (
         <SafeAreaView style={{ flex:1, backgroundColor: '#fefac0' }} >

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import org.pgsqlite.SQLitePluginPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -32,9 +33,9 @@ public class MainApplication extends Application implements ReactApplication {
           //packages.add(new MyReactNativePackage());
           //packages.add(new SQLitePluginPackage());
           //packages.add(new MainReactPackage(),
-            new RNGestureHandlerPackage(),
-            new RNGestureHandlerPackage());
-          new SQLitePluginPackage();
+            new AsyncStoragePackage();
+            new RNGestureHandlerPackage();
+            new SQLitePluginPackage();
           return packages;
         }
 

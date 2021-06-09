@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import SQLite from 'react-native-sqlite-storage';
 import {
     Alert,
     Image,
@@ -14,6 +13,9 @@ import {
 } from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
+import SQLite from 'react-native-sqlite-storage';
+SQLite.DEBUG(true);
+SQLite.enablePromise(false);
 
 let db;
 
@@ -30,44 +32,46 @@ const SignUpScreen = ({ navigation }) => {
     let [confirmPassword, setConfirmPassword] = useState('');
 
     let register_user = () => {
-        console.log(username, password, confirmPassword);
-    
-        if (!username) {
-          alert('butngi username');
-          return;
-        }
-        if (!password) {
-          alert('butangi password');
-          return;
-        }
-        if (!confirmPassword) {
-          alert('butang usab ang password');
-          return;
-        }
-
-        db.transaction(tx => {
-            tx.executeSql(
-              'INSERT INTO table_users (user_name, user_password, user_confirmpassword) VALUES (?,?,?)',
-              [username, password, confirmPassword],
-              (tx, results) => {
-                console.log('Results', results.rowsAffected);
-                if (results.rowsAffected > 0) {
-                  Alert.alert(
-                    'Success',
-                    'You are Registered Successfully',
-                    [
-                      {
-                        text: 'Ok',
-                        onPress: () => navigation.navigate('LoginScreen'),
-                        //onPress: () => alert('Sign Up Clicked!')
-                      },
-                    ],
-                    { cancelable: false }
-                  );
-                } else alert('Registration Failed');
-              }
-            );
+      console.log(username, password, confirmPassword);
+  
+      if (!username) {
+        alert('butngi username');
+        return;
+      }
+      if (!password) {
+        alert('butangi password');
+        return;
+      }
+      if (!confirmPassword) {
+        alert('butang usab ang password');
+        return;
+      }
+      
+      return new Promise((resolve) => {
+        db.transaction(function (tx) {
+          tx.executeSql(
+            'INSERT INTO table_users (user_name, user_password, user_confirmpassword) VALUES (?,?,?)',
+            [username, password, confirmPassword],
+            (tx, results) => {
+              console.log('Results', results.rowsAffected);
+              if (results.rowsAffected > 0) {
+                Alert.alert(
+                  'Success',
+                  'You are Registered Successfully',
+                  [
+                    {
+                      text: 'Ok',
+                      onPress: () => navigation.navigate('LoginScreen'),
+                      //onPress: () => alert('Sign Up Clicked!')
+                    },
+                  ],
+                  { cancelable: false }
+                );
+              } else alert('Registration Failed');
+            }
+          );
         });
+      });
     };
 
     return (

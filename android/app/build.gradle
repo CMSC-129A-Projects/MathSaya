@@ -184,12 +184,11 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-sqlite-storage')
-    
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
-    //implementation"com.android.support:appcompatv7:${rootProject.ext.supportLibVersion}"   
+    // implementation "com.android.support:appcompatv7:${rootProject.ext.supportLibVersion}"   
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':react-native-sqlite-storage')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')
     
