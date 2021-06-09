@@ -33,15 +33,9 @@ public class MainApplication extends Application implements ReactApplication {
           //packages.add(new MyReactNativePackage());
           //packages.add(new SQLitePluginPackage());
           //packages.add(new MainReactPackage(),
-<<<<<<< HEAD
             new AsyncStoragePackage();
             new RNGestureHandlerPackage();
             new SQLitePluginPackage();
-=======
-            new RNGestureHandlerPackage();
-            new RNGestureHandlerPackage();
-          new SQLitePluginPackage();
->>>>>>> 6ef09ed753bffcb1348184c4a542be820f672bf2
           return packages;
         }
 
