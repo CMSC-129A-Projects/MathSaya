@@ -1,5 +1,5 @@
 {
-  "name": "mathsaya",
+  "name": "bismath",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -33,6 +33,7 @@
     "react-native-onboarding-swiper": "^1.1.4",
     "react-native-paper": "^4.8.1",
     "react-native-reanimated": "^2.1.0",
+    "react-native-rename": "^2.9.0",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.1.1",
@@ -40,7 +41,7 @@
     "react-native-swiper": "^1.6.0",
     "react-native-vector-icons": "^8.1.0",
     "react-navigation": "^4.4.4",
-    "rimraf": "^2.7.1"
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
