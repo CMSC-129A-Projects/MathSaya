@@ -1,4 +1,4 @@
-package com.mathsaya;
+package com.bismath;
 
 import com.facebook.react.ReactActivity;
 
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "MathSaya";
+    return "BisMath";
   }
 
   @Override
