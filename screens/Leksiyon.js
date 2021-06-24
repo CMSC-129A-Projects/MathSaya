@@ -15,7 +15,7 @@ const Leksiyon = ({route}) => {
                 paddingVertical: 10, 
                 flexDirection: 'row'
             }}>
-                <Text style={{fontSize:55, fontWeight: 'bold', color: '#DAA520'}}>
+                <Text style={{ fontSize: 55, fontFamily: 'Quicksand-Bold', color: '#DAA520'}}>
                     {"0"+(index + 1)}
                 </Text>
                 <View style={{paddingHorizontal: 20, flex: 1}}>
@@ -23,12 +23,13 @@ const Leksiyon = ({route}) => {
                     style={{
                         fontSize:15, 
                         color:"#A0A5BD", 
-                        fontWeight:"500",
+                        fontFamily: 'Quicksand-Medium',
                         marginBottom: 5,
                     }}>
                         {content.time}
                     </Text>
-                    <Text style={{fontSize: 25, fontWeight: 'bold', color: '#48D1CC'}}>
+                    <Text style={{
+                        fontSize: 25, fontFamily: 'Quicksand-Bold', color: '#48D1CC'}}>
                         {content.title}
                     </Text>
                 </View>
@@ -61,9 +62,9 @@ const Leksiyon = ({route}) => {
                     paddingRight: 20,
                     paddingLeft: 20
                 }}>
-                <Text style={{fontSize:45, fontWeight: 'bold',marginTop: -40, color: '#000000'}}>
+                {/* <Text style={{ fontSize: 45, fontFamily: 'Quicksand-Bold', marginTop: -40, color: '#000000'}}>
                     {data.name}
-                </Text>
+                </Text> */}
             </ImageBackground>
             <View 
             style={{
@@ -75,13 +76,14 @@ const Leksiyon = ({route}) => {
             }}>
             <Text 
             style={{
+                textAlign: 'center',
                 marginTop: 25,
                 marginBottom: 20,
                 marginHorizontal: 20,
-                fontSize: 25,
-                fontWeight: 'bold',
+                fontSize: 30,
+                fontFamily: 'Quicksand-Bold',
             }}>
-            Topics
+            {data.name + ' Topics'}
             </Text>
             <FlatList showsVerticalScrollIndicator={false}
             data={data.lessonContent}

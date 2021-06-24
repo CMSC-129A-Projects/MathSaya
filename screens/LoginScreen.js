@@ -102,7 +102,7 @@ const LoginScreen = ({ navigation }) => {
                             />
                         </View>                  
 
-                        <Text style={styles.text}>Sign In</Text>
+                        <Text style={styles.text}>Pag-sign In</Text>
 
                         <FormInput
                             labelValue={username}
@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Quicksand-Bold',
         fontSize: 40,
         marginBottom: 5,
+        marginTop: 10,
         color: '#402A03',        
     },
     navButton: {

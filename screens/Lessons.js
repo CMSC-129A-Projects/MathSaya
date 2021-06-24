@@ -18,8 +18,8 @@ const Lessons = ({route, navigation}) => {
                         <Text style={{ color: "#ffff", fontSize: 20, fontFamily: 'Quicksand-Bold', paddingBottom: 1}}>
                         {lesson.name}
                     </Text>
-                    <Text style={{color:"#ffff", fontSize:18, fontWeight: '600', fontWeight: 'bold'}}>
-                        {lesson.totalLesson + 'Topics'}
+                        <Text style={{ color: "#ffff", fontSize: 18, fontFamily: 'Quicksand-Bold',}}>
+                        {lesson.totalLesson + ' Topics'}
 
                     </Text>
                 </View>
@@ -29,17 +29,17 @@ const Lessons = ({route, navigation}) => {
     };
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{marginTop: 20}}>
-                <Text style={{ fontSize: 28, fontFamily: 'Quicksand-Bold'}}>
+            <View style={{marginTop: 30, padding: 15}}>
+                <Text style={styles.header}>
                     Malipayong pagbalik,
                 </Text>
-                <Text style={{fontSize:16, color: '#616888', marginTop:5, fontFamily: 'Quicksand-Medium'}}>
-                    Magkat - on kita ug bag - o ug lain - laing termino karong adlawa!
+                <Text style={styles.subheader}>
+                    Magkat-on kita og bag-o ug lain-laing termino karong adlawa!
                 </Text>
                 <View style={styles.searchBar}>
                     <Icon name="search" size={25}/>
                     <TextInput 
-                        style={{ fontSize: 18, marginLeft: 5, color: '#000000', fontFamily: 'Quicksand-Regular'}}
+                        style={styles.searchBarText}
                         placeholder="Pangita bisag unsa..."
                         placeholderTextColor='#696969'
                     />
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     lessonCardContainer: {
-        marginVertical: 10,
+        marginVertical: 15,
         marginHorizontal: 5,
         width: windowWidth / 2.4,
         height: windowHeight / 3,
@@ -89,13 +89,28 @@ const styles = StyleSheet.create({
     },
     searchBar: {
         height: 60,
-        marginTop: 15,
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingLeft: 15,
+        marginVertical: 15,
+        paddingVertical: 5,
+        paddingLeft: 20,
         backgroundColor: "rgba(184, 184, 184, 0.534)",
         borderRadius: 30,
         alignItems: 'center',
         flexDirection: 'row',
+    },
+    searchBarText: {
+        fontSize: 18,
+        marginLeft: 5,
+        color: '#000000',
+        fontFamily: 'Quicksand-Regular'
+    },
+    header: {
+        fontSize: 28,
+        fontFamily: 'Quicksand-Bold'
+    },
+    subheader: {
+        fontSize: 16,
+        color: '#616888',
+        marginTop: 5,
+        fontFamily: 'Quicksand-Medium'
     },
 });

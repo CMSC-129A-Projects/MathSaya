@@ -65,19 +65,19 @@ const OnboardingScreen = ({navigation}) => {
                 backgroundColor: '#fefac0',
                 image: <Image source={require('../assets/onboarding-img1.png')} />,
                 title: 'Pagkat-on',
-                subtitle: 'A New Way To Connect With The World',
+                subtitle: 'Usa ka Bag-ong Paagi aron Makakonekatar sa Kalibutan',
             },
             {
                 backgroundColor: '#fefac0',
                 image: <Image source={require('../assets/onboarding-img2.png')} />,
                 title: 'Makakat-on',
-                subtitle: 'Share your Thoughts',
+                subtitle: 'Ipaambit ang Imong Gihunahuna',
             },
             {
                 backgroundColor: '#fefac0',
                 image: <Image source={require('../assets/onboarding-img3.png')} />,
                 title: 'Nakakat-on',
-                subtitle: 'Claim that Diploma',
+                subtitle: 'Pamalandunga ang Imong Kasinatian',
             },
 
         ]}
