@@ -14,13 +14,15 @@ const Lessons = ({route, navigation}) => {
                 source={lesson.image}
                 style={styles.lessonCardContainer}
             >
-                <Text style={{fontSize: 30, fontWeight: 'bold', paddingBottom: 1}}>
-                    {lesson.name}
-                </Text>
-                <Text style={{color:"#000000", fontSize:18, fontWeight: '600', fontWeight: 'bold'}}>
-                    {lesson.totalLesson + 'Topics'}
+                    <View style={{ alignItems: 'center', backgroundColor: 'rgba(175, 96, 26, 0.9)', padding: 5, borderRadius: 10,}}>
+                        <Text style={{ color: "#ffff", fontSize: 20, fontFamily: 'Quicksand-Bold', paddingBottom: 1}}>
+                        {lesson.name}
+                    </Text>
+                    <Text style={{color:"#ffff", fontSize:18, fontWeight: '600', fontWeight: 'bold'}}>
+                        {lesson.totalLesson + 'Topics'}
 
-                </Text>
+                    </Text>
+                </View>
             </ImageBackground>
         </TouchableOpacity> 
         );
@@ -52,7 +54,7 @@ const Lessons = ({route, navigation}) => {
                         </Text>
                     </View>
             </View>
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, alignItems: 'center'}}>
                 <FlatList
                     showsVerticalScrollIndicator={false} 
                     numColumns={2} 
@@ -76,13 +78,14 @@ const styles = StyleSheet.create({
     lessonCardContainer: {
         marginVertical: 10,
         marginHorizontal: 5,
-        borderRadius: 50,
-        width: windowWidth / 2 - 30,
+        width: windowWidth / 2.4,
         height: windowHeight / 3,
         overflow: "hidden",
-        paddingTop: 25,
-        paddingLeft: 20,
+        padding: 20,
+        // paddingTop: 25,
+        // paddingLeft: 20,
         borderRadius: 15,
+        // alignItems: 'center'
     },
     searchBar: {
         height: 60,

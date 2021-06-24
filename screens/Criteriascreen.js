@@ -40,7 +40,8 @@ const Criteriascreen = ({ navigation }) => {
             <View 
                 // key = {item.grade_id}
                 style={{
-                    // marginTop:20,                   
+                    // marginTop:20, 
+                    flex: 1,                  
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}>
@@ -68,7 +69,7 @@ const Criteriascreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <SafeAreaView>
+            <SafeAreaView style={{flex:1,}}>
                 <View style={{ alignItems: 'center'}}>
                     <Image
                         source={require('../assets/learning2.png')}
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#fefac0',
         flex: 1,
+        padding: 20,
     },
     gradeCardContainer: {
         backgroundColor: '#5454',
@@ -111,8 +113,8 @@ const styles = StyleSheet.create({
         // paddingHorizontal: 20, 
         // paddingVertical: 10, 
         marginVertical: 10,
-        width: 250,
-        height: 75,
+        width: windowWidth/1.75,
+        height: windowHeight/13,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -124,8 +126,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Quicksand-Bold'
     },
     learning2: {
-        height: 200,
-        width: 200,
+        height: windowHeight/4,
+        width: windowWidth/2,
         resizeMode: 'cover',
         marginTop: 15,
     },
