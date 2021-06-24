@@ -87,22 +87,20 @@ const LoginScreen = ({ navigation }) => {
     };
 
     return (
-        <SafeAreaView style={{ flex:1, backgroundColor: '#fefac0' }} >
+        <SafeAreaView style={styles.container} >
             <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'center'}} >
 
                 <View style={{ flex: 1, justifyContent: 'center' }} >
-
-                    <View style={{alignItems: 'center'}}>
-                        <Image
-                            source={require('../assets/logo.png')}
-                            style={styles.logo}
-                        />
-                    </View>
-
                     <ScrollView 
-                        style={{ marginHorizontal: 40 }} 
-                        showsVerticalScrollIndicator={false} 
+                            style={{ marginHorizontal: 25}} 
+                            showsVerticalScrollIndicator={false} 
                     >
+                        <View style={{alignItems: 'center'}}>
+                            <Image
+                                source={require('../assets/logo.png')}
+                                style={styles.logo}
+                            />
+                        </View>                  
 
                         <Text style={styles.text}>Sign In</Text>
 
@@ -128,26 +126,27 @@ const LoginScreen = ({ navigation }) => {
                             onPress={login_user}
                             //onPress={() => alert('Sign In Clicked!')}
                         />
-                    </ScrollView>
+                    
             
-                    <View style={{ alignItems: 'center'}}>
-                        <TouchableOpacity 
-                            style={styles.forgotButton} 
-                            //onPress={() => navigation.navigate('Remember')}
-                        > 
-                            <Text style={styles.navButtonText}>
-                                Forgot Password?
-                            </Text>
-                        </TouchableOpacity>
+                        <View style={{ marginVertical: 20, alignItems: 'center'}}>
+                            <TouchableOpacity 
+                                style={styles.forgotButton} 
+                                //onPress={() => navigation.navigate('Remember')}
+                            > 
+                                <Text style={styles.navButtonText}>
+                                    Forgot Password?
+                                </Text>
+                            </TouchableOpacity>
 
-                        <TouchableOpacity
-                            style={styles.forgotButton}
-                            onPress={() => navigation.navigate('SignUpScreen')}>
-                            <Text style={styles.navButtonText}>
-                                Don't have an account? Create here
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
+                            <TouchableOpacity
+                                style={styles.forgotButton}
+                                onPress={() => navigation.navigate('SignUpScreen')}>
+                                <Text style={styles.navButtonText}>
+                                    Don't have an account? Create here
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </ScrollView>
  
                 </View>
             </KeyboardAvoidingView>
@@ -160,7 +159,8 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
-        padding: 40,
+        flex: 1,
+        padding: 10,
         paddingTop: 40,
         backgroundColor: '#fefac0',
     },
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
        marginTop: 15,
     },
     forgotButton: {
-        //marginVertical: 5,
+        marginVertical: 5,
     },
     navButtonText: {
         fontSize: 18,

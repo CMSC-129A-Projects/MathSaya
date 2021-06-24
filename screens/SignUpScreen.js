@@ -79,19 +79,16 @@ const SignUpScreen = ({ navigation }) => {
             <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'space-between' }}>
                 
                 <View style={{ flex: 1, justifyContent: 'center' }} >
-                   
-                    <View style={{ alignItems: 'center' }}>
-                        <Image
-                            source={require('../assets/logo.png')}
-                            style={styles.logo}
-                        />
-                    </View>
-
-                    <ScrollView 
-                        style={{ marginHorizontal: 35 }}
-                        showsVerticalScrollIndicator={false}
-                        keyboardShouldPersistTaps="handled">
-                        
+                  <ScrollView
+                    style={{ marginHorizontal: 35 }}
+                    showsVerticalScrollIndicator={false}
+                    keyboardShouldPersistTaps="handled">
+                      <View style={{ alignItems: 'center' }}>
+                          <Image
+                              source={require('../assets/logo.png')}
+                              style={styles.logo}
+                          />
+                      </View>
 
                             <Text style={styles.text}>Buhat ug Account</Text>
 
@@ -147,8 +144,8 @@ const SignUpScreen = ({ navigation }) => {
 
                         </TouchableOpacity>
                         
-                    </View>
-                    </ScrollView>
+                      </View>
+                    
 
                     
 
@@ -161,7 +158,7 @@ const SignUpScreen = ({ navigation }) => {
                             </Text>
                         </TouchableOpacity>
                     </View>
-
+                  </ScrollView>
                 </View>
             </KeyboardAvoidingView>
         </SafeAreaView>
