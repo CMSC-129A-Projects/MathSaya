@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component }  from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, FlatList, StyleSheet, ImageBackground} from 'react-native';
+import { SafeAreaView, Image, View, Text, TouchableOpacity, FlatList, StyleSheet, ImageBackground} from 'react-native';
 import Grades from './Grades';
 import {windowHeight, windowWidth} from '../utils/Dimensions';
 // import SQLite from 'react-native-sqlite-storage';
@@ -40,36 +40,14 @@ const Criteriascreen = ({ navigation }) => {
             <View 
                 // key = {item.grade_id}
                 style={{
-                    marginTop:20,
-                    paddingVertical: 6,
-                    paddingHorizontal: 9, 
-                    flexDirection: 'row',
+                    // marginTop:20,                   
                     alignItems: 'center',
-                    alignContent: 'center',
+                    justifyContent: 'center',
                 }}>
                 <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate( "Lessons", {data:grade})}>
-                    <View style ={{
-                            backgroundColor: '#fefac0',
-                            borderTopRightRadius: 10,
-                            borderTopLeftRadius: 10,
-                            borderBottomLeftRadius: 10,
-                            borderBottomRightRadius: 10,
-                            paddingHorizontal: 20, 
-                            paddingVertical: 10, 
-                            width:windowWidth / 1.04,
-                            height:windowHeight / 7,
-                            alignContent: 'center',
-                        }}>
-                        <Text style = {{
-                                fontSize: 50, 
-                                color: '#402A03', 
-                                paddingTop: 20,
-                                alignItems: 'baseline', 
-                                textAlign: 'left',
-                                fontFamily: 'Foundation'
-                            }}>{grade.name}
-                        </Text>
-                        <ImageBackground source={grade.image} 
+                    <View style ={styles.gradeCardContainer}>
+                        <Text style = {styles.gradeCardText}>{grade.name}</Text>
+                        {/* <ImageBackground source={grade.image} 
                             style =
                             {{
                                 width: windowWidth / 2.42, 
@@ -81,7 +59,7 @@ const Criteriascreen = ({ navigation }) => {
                                 borderBottomLeftRadius:10,
                                 borderTopLeftRadius: 10,
                             }}>
-                        </ImageBackground>
+                        </ImageBackground> */}
                     </View>
                 </TouchableOpacity>
             </View>
@@ -89,47 +67,79 @@ const Criteriascreen = ({ navigation }) => {
     };
 
     return (
-        <SafeAreaView 
-            style={{
-                backgroundColor: '#fefac0', 
-                flex: 1, 
-            }}>
-            <View style={{marginTop: 5, paddingHorizontal:10}}>
-                <Text style={{fontSize:65, fontWeight: 'bold', color: '#05375a', fontFamily:'Feather'}}>
-                    Kumusta,
-                </Text>
-                <ImageBackground source={require('../assets/image4.png')} 
-                    style = {{
-                        height: windowHeight / 4.5,
-                        width: windowWidth/3, 
-                        marginLeft: 250,
-                        marginTop: -60,
-                    }}>
-                </ImageBackground>
-                <Text style={{fontSize:25, color: '#05375a', marginTop:-125}}>
-                    Tara ug magkat - on kita!
-                </Text>
-                <Text style={{fontSize:40, color: '#05375a', marginTop:60}}>
-                    Mga Kategoriya
-                </Text>
-            </View> 
-            <View style=
-                {{
-                    marginTop: 10,
-                    flex: 1,
-                    backgroundColor: '#F9E671',
-                    borderTopRightRadius: 25,
-                    borderTopLeftRadius: 25,
-                }}>
-                <FlatList
-                    showsVerticalScrollIndicator={false} 
-                    data={Grades}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderItem={({item})=><GradeCard grade={item}/>}
-                />
-            </View> 
-        </SafeAreaView>
+        <View style={styles.container}>
+            <SafeAreaView>
+                <View style={{ alignItems: 'center'}}>
+                    <Image
+                        source={require('../assets/learning2.png')}
+                        style={styles.learning2}
+                    />
+                    <Text style={styles.header}>
+                        Kumusta, Tara magkat-on kita!
+                    </Text>
+                </View>
+                <View style={{alignItems: 'center'}}>
+                    <Text style={styles.subheader}>
+                        Mga Kategorya
+                    </Text>
+                </View>
+                <View style={{flex: 1, alignItems: 'center',}}>
+                    <FlatList
+                        showsVerticalScrollIndicator={false} 
+                        data={Grades}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={({item})=><GradeCard grade={item}/>}
+                    />
+                </View> 
+            </SafeAreaView>
+        </View>
     );
 };
 
 export default Criteriascreen;
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fefac0',
+        flex: 1,
+    },
+    gradeCardContainer: {
+        backgroundColor: '#5454',
+        borderRadius: 30,
+        // paddingHorizontal: 20, 
+        // paddingVertical: 10, 
+        marginVertical: 10,
+        width: 250,
+        height: 75,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    gradeCardText: {
+        fontSize: 30,
+        color: '#402A03',
+        // alignItems: 'center', 
+        // textAlign: 'left',
+        fontFamily: 'Quicksand-Bold'
+    },
+    learning2: {
+        height: 200,
+        width: 200,
+        resizeMode: 'cover',
+        marginTop: 15,
+    },
+    header: {
+        textAlign: 'center',
+        fontSize: 30,
+        color: '#05375a',
+        fontFamily: 'Quicksand-Bold'
+    },
+    subheader: {
+        fontSize: 20,
+        color: '#05375a',
+        fontFamily: 'Quicksand-Bold',
+        justifyContent: 'center',
+        marginVertical: 20
+    },
+});
