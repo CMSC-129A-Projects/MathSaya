@@ -62,9 +62,6 @@ const Leksiyon = ({route}) => {
                     paddingRight: 20,
                     paddingLeft: 20
                 }}>
-                {/* <Text style={{ fontSize: 45, fontFamily: 'Quicksand-Bold', marginTop: -40, color: '#000000'}}>
-                    {data.name}
-                </Text> */}
             </ImageBackground>
             <View 
             style={{

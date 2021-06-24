@@ -82,10 +82,7 @@ const styles = StyleSheet.create({
         height: windowHeight / 3,
         overflow: "hidden",
         padding: 20,
-        // paddingTop: 25,
-        // paddingLeft: 20,
         borderRadius: 15,
-        // alignItems: 'center'
     },
     searchBar: {
         height: 60,
