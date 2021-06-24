@@ -16,6 +16,9 @@ import ProfilePersonalScreen from './ProfilePersonalScreen';
 import ProfileAchievementScreen from './ProfileAchievementScreen';
 import ProfileProgressScreen from './ProfileProgressScreen';
 
+//Import Lessons Screens
+import LessonTitle from './LessonTitle';
+
 //Import Tindahan Screens
 import TindahanScreen from './TindahanScreen';
 

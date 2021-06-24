@@ -24,8 +24,8 @@ let db;
 
 db = SQLite.openDatabase(
     {
-    name: 'MathSaya-database.db',
-    createFromLocation : "~MathSaya-database.db",
+    name: 'bismath-database.db',
+    createFromLocation : "~bismath-database.db",
     }
 );
 
