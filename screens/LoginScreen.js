@@ -134,7 +134,7 @@ const LoginScreen = ({ navigation }) => {
                                 //onPress={() => navigation.navigate('Remember')}
                             > 
                                 <Text style={styles.navButtonText}>
-                                    Forgot Password?
+                                    Nalimtan ba nimo imong Password?
                                 </Text>
                             </TouchableOpacity>
 
@@ -142,7 +142,7 @@ const LoginScreen = ({ navigation }) => {
                                 style={styles.forgotButton}
                                 onPress={() => navigation.navigate('SignUpScreen')}>
                                 <Text style={styles.navButtonText}>
-                                    Don't have an account? Create here
+                                    Wala pa kay account? Buhata diri.
                                 </Text>
                             </TouchableOpacity>
                         </View>

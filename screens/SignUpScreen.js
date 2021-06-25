@@ -56,8 +56,8 @@ const SignUpScreen = ({ navigation }) => {
               console.log('Results', results.rowsAffected);
               if (results.rowsAffected > 0) {
                 Alert.alert(
-                  'Success',
-                  'You are Registered Successfully',
+                  'Malampuson!',
+                  'Narehistro na ka',
                   [
                     {
                       text: 'Ok',
@@ -67,7 +67,7 @@ const SignUpScreen = ({ navigation }) => {
                   ],
                   { cancelable: false }
                 );
-              } else alert('Registration Failed');
+              } else alert('Naay mali sa imong pagrehistro, palihog kog tsek balik.');
             }
           );
         });
@@ -125,7 +125,7 @@ const SignUpScreen = ({ navigation }) => {
                             />
 
                             <View style={styles.textPrivate}>
-                                <Text style={styles.color_textPrivate}>
+                                {/* <Text style={styles.color_textPrivate}>
                                     By registering, you confirm that you accept our 
                                 </Text>
 
@@ -140,9 +140,8 @@ const SignUpScreen = ({ navigation }) => {
                                 <TouchableOpacity onPress={() => alert('Privacy Policy Clicked!')}>
                                     <Text style={[styles.color_textPrivate, { color: '#e88832' }]}> 
                                       Privacy Policy
-                                </Text>
-
-                        </TouchableOpacity>
+                                    </Text>
+                                </TouchableOpacity> */}
                         
                       </View>
                     
@@ -154,7 +153,7 @@ const SignUpScreen = ({ navigation }) => {
                             style={styles.navButton}
                             onPress={() => navigation.navigate('LoginScreen')}>
                             <Text style={styles.navButtonText}>
-                                Have an Account? Sign In
+                                Naa na ba kay account? Sign In.
                             </Text>
                         </TouchableOpacity>
                     </View>
@@ -200,16 +199,16 @@ const styles = StyleSheet.create({
       fontFamily: 'Roboto-Medium',
       marginBottom: 5
   },
-  textPrivate: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      marginVertical: 12,
-      justifyContent: 'center',
-  },
-  color_textPrivate: {
-      fontSize: 13,
-      fontWeight: '400',
-      fontFamily: 'Roboto-Medium',
-      color: 'grey',
-  },
+  // textPrivate: {
+  //     flexDirection: 'row',
+  //     flexWrap: 'wrap',
+  //     marginVertical: 12,
+  //     justifyContent: 'center',
+  // },
+  // color_textPrivate: {
+  //     fontSize: 13,
+  //     fontWeight: '400',
+  //     fontFamily: 'Roboto-Medium',
+  //     color: 'grey',
+  //},
 });
